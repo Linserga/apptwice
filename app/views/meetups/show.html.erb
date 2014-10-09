@@ -1,0 +1,21 @@
+<section class="meetups">
+	<h2><%= @meetup.name %></h2>
+
+	<h3>Location</h3>
+	<%= @meetup.address %>
+	<%= "#{@meetup.city}, #{@meetup.state} #{@meetup.zip}" %>
+
+	<h3>Date and Time</h3>
+	<p><strong>Starts At </strong><%= @meetup.starts_at %></p> 
+	<p><strong>Ends At </strong><%= @meetup.ends_at %></p> 
+
+	<h3>Description</h3>
+	<p><%= @meetup.description %></p>
+
+	<hr>
+
+	<p class='actions'>
+		<%= link_to 'Edit', edit_meetup_path(@meetup), class: 'btn btn-primary'%>
+		<%= link_to 'Cancel', meetups_path, class: 'btn' %>
+	</p>
+</section>

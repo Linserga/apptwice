@@ -7,7 +7,7 @@ class UserAuthenticator
 	end
 
 	def authenticate password
-		hash = @user && BCrypt::Password.new(@user.password)
+		hash = @user && BCrypt::Password.new(@user.password_digest)
 		
 		if hash && hash == password
 			@user

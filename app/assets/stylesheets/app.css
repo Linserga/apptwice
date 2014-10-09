@@ -1,0 +1,19 @@
+dl.dl-horizontal.left {
+
+}
+
+dl.dl-horizontal.left dt {
+    text-align: left;
+    width: auto;
+}
+dl.dl-horizontal.left dd {
+    margin-left: 120px;
+    margin-bottom: 5px;
+}
+
+body {
+
+    padding-left: 60px;
+    padding-right: 60px;
+    
+    }

@@ -1,0 +1,14 @@
+<%= form_tag login_path do %>
+	<p>
+		<%= label_tag :email %>
+		<%= text_field_tag :email, params[:email] %>
+	</p>
+	<p>
+		<%= label_tag :password %>
+		<%= password_field_tag :password %>
+	</p>
+	<p>
+		<%= submit_tag 'Login', class: 'btn btn-primary'%>
+		<%= link_to 'Cancel', root_path, class: 'btn' %>
+	</p>
+<%end%>

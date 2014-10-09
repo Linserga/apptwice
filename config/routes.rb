@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  
+  resources :users, only: [:create, :new]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :meetups
+
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  post 'login', to: 'sessions#create'
+
+  get 'register', to: "users#new", as: 'register'
+
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

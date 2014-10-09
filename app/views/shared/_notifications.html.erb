@@ -1,0 +1,5 @@
+<% [:error, :success, :notice].each do |item| %>
+	<% if flash[item] %>
+		<%= content_tag(:div, flash[item], class: "alert alert-#{item}")%>
+	<%end%>
+<%end%>
