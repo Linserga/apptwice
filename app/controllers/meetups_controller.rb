@@ -1,5 +1,6 @@
 class MeetupsController < ApplicationController
 	
+	authorize_resource only: [:new, :show, :edit, :update, :destroy]
 	before_action :meetup, only: [:show, :edit, :update, :destroy]
 
 	def index

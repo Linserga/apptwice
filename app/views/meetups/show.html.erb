@@ -17,9 +17,10 @@
 	</div>
 
 	<hr>
-
-	<p class='actions'>
-		<%= link_to 'Edit', edit_meetup_path(@meetup), class: 'btn btn-primary'%>
-		<%= link_to 'Cancel', meetups_path, class: 'btn' %>
-	</p>
+	<% if can? :manage, meetup %>
+		<p class='actions'>
+			<%= link_to 'Edit', edit_meetup_path(@meetup), class: 'btn btn-primary'%>
+			<%= link_to 'Cancel', meetups_path, class: 'btn' %>
+		</p>
+	<%end%>
 </section>

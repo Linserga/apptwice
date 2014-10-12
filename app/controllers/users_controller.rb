@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	
-	before_action :user, only: [:edit, :update, :destroy]
+	load_and_authorize_resource only: [:edit, :update, :destroy]
+	before_action :authenticate!, only: [:edit, :update, :destroy]
 
 	def index
 		@users = User.includes(:profile).page(params[:page])

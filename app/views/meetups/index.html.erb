@@ -4,7 +4,10 @@
 	<%else%>
 		<p>Sorry! No Meetups yet :(</p>
 	<%end%>
-	<p class='actions'>
-		<%= link_to 'Add New Meetup', new_meetup_path, class:"btn btn-primary" %>
-	</p>
+
+	<%if can? :manage, Meetup.new %>
+		<p class='actions'>
+			<%= link_to 'Add New Meetup', new_meetup_path, class:"btn btn-primary" %>
+		</p>
+	<%end%>
 </div>

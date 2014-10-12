@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   	end
 
     def authenticate!
-      raise ActionController::RoutingError.new('Not Found') unless current_user
+      redirect_to login_path unless current_user #raise ActionController::RoutingError.new('Not Found') 
     end
 end
