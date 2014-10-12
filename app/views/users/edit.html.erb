@@ -1,5 +1,4 @@
-<%= form_for @user do |f| %>
-	<% if @user.errors.any? || @profile.errors.any? %>
+<% if @user.errors.any? || @profile.errors.any? %>
 		<ul>
 			<% [@profile, @user].each do |resource| %>
 				<% resource.errors.full_messages.each do |message| %>
@@ -8,22 +7,32 @@
 			<%end%>
 		</ul>
 	<%end%>
-	<%= fields_for @profile do |field| %>
-		<div>
-			<%= field.label :name %>
-			<%= field.text_field :name %>
-		</div>
-		<div>
-			<%= field.label :age %>
-			<%= field.text_field :age %>
-		</div>
-	<%end%>	
-	<div>
-		<%= f.label :email %>
-		<%= f.email_field :email %>
-	</div>	
-	<div>
-		<%= f.submit class: 'btn btn-primary' %>
-		<%= link_to 'Cancel', root_path, class: "btn" %>
+<div class="row-fluid">
+	<div class='span6'>
+		<%= form_for @user do |f| %>
+			
+			<%= fields_for @profile do |field| %>
+				<div>
+					<%= field.label :name %>
+					<%= field.text_field :name %>
+				</div>
+				<div>
+					<%= field.label :age %>
+					<%= field.text_field :age %>
+				</div>
+			<%end%>	
+			<div>
+				<%= f.label :email %>
+				<%= f.email_field :email %>
+			</div>	
+			<div>
+				<%= f.submit class: 'btn btn-primary' %>
+				<%= link_to 'Cancel', root_path, class: "btn" %>
+			</div>
+		<%end%>
 	</div>
-<%end%>
+	<div class='span6'>
+		<%= image_tag @user.profile.avatar.url, alt: @user.email %>
+		<%= link_to 'Change Avatar', edit_avatar_path(@user), class: 'btn btn-success' %>
+	</div>
+</div>
