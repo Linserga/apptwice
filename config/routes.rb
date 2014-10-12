@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :meetups
   
-
+  get 'contact', to: 'contact#new', as: 'contact'
+  post 'contact', to: 'contact#create'
+  
   post 'meetups/:meetup_id/rsvp', to: 'rsvps#create', as: 'rsvp_meetup'
   delete 'meetups/:meetup_id/rsvp', to: 'rsvps#destroy'
   get 'login', to: 'sessions#new', as: 'login'

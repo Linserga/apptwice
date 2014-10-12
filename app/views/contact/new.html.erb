@@ -1,0 +1,18 @@
+<div class='contact-form'>
+	<%= form_tag contact_path do %>
+		<%= fields_for :contact do |f| %>
+			<div>
+				<%= f.label :subject %>
+				<%= f.text_field :subject%>
+			</div>
+			<div>
+				<%= f.label :message %>
+				<%= f.text_field :message %>
+			</div>
+			<p class='actions'>
+				<%= f.submit 'Send Message', class: 'btn btn-primary' %>
+				<%= link_to 'Cancel', root_path, class: 'btn'%>
+			</p>
+		<%end%>
+	<%end%>
+</div>
