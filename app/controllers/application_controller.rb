@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   	def user_session
   		@user_session ||= UserSession.new(request)
   	end
+
+    def authenticate!
+      raise ActionController::RoutingError.new('Not Found') unless current_user
+    end
 end

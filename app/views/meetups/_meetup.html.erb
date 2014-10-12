@@ -12,6 +12,9 @@
 	<h3>Description</h3>
 	<p><%= meetup.description %></p>
 
+	<div class='rsvp-info'>
+		<%= render partial: 'rsvp', locals: {meetup: meetup}%>
+	</div>
 	<p class='actions'>
 		<%= link_to 'Show', meetup, class:'btn'%>
 		<%= link_to 'Delete', meetup, method: :delete, class:'btn btn-danger' %>

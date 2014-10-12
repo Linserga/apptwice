@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009104239) do
+ActiveRecord::Schema.define(version: 20141011140911) do
 
   create_table "meetups", force: true do |t|
     t.string   "name"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20141009104239) do
     t.string   "zip"
     t.datetime "starts_at"
     t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetups_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "meetup_id"
+  end
+
+  add_index "meetups_users", ["user_id", "meetup_id"], name: "index_meetups_users_on_user_id_and_meetup_id", using: :btree
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "age"
+    t.string   "avatar_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

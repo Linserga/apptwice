@@ -1,0 +1,18 @@
+<div class='users'>
+	<h1>Users</h1>
+	<% if @users.present? %>
+		<div>
+			<ul>
+				<% @users.each do |user| %>
+					<li><%= user.email%> | <%= user.name%> | <%= user.age %> | <%= link_to 'Edit', edit_user_path(user), class: 'btn'%> | <%= link_to 'Delete', user, method: :delete, class: 'btn btn-danger'%></li>
+				<%end%>
+			</ul>
+		</div>
+	<%else%>
+		<p>There are no users for this group.</p>
+	<%end%>
+
+	<% unless current_user %>
+		<p><%= link_to 'Register for our User Group!', register_path, class: 'btn btn-primary' %></p>
+	<%end%>
+</div>

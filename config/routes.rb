@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :users, only: [:create, :new]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :meetups
 
+  post 'meetups/:meetup_id/rsvp', to: 'rsvps#create', as: 'rsvp_meetup'
+  delete 'meetups/:meetup_id/rsvp', to: 'rsvps#destroy'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post 'login', to: 'sessions#create'

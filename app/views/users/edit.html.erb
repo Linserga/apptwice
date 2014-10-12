@@ -21,15 +21,7 @@
 	<div>
 		<%= f.label :email %>
 		<%= f.email_field :email %>
-	</div>
-	<div>
-		<%= f.label :password%>
-		<%= f.password_field :password%>
-	</div>
-	<div>
-		<%= f.label :password_confirmation, 'Confirm' %>
-		<%= f.password_field :password_confirmation %>
-	</div>
+	</div>	
 	<div>
 		<%= f.submit class: 'btn btn-primary' %>
 		<%= link_to 'Cancel', root_path, class: "btn" %>

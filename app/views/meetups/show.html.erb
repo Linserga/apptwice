@@ -12,6 +12,10 @@
 	<h3>Description</h3>
 	<p><%= @meetup.description %></p>
 
+	<div class='rsvp-info'>
+		<%= render partial: 'rsvp', locals: {meetup: meetup}%>
+	</div>
+
 	<hr>
 
 	<p class='actions'>
